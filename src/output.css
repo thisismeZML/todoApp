@@ -728,6 +728,11 @@ video {
   border-color: rgb(212 212 216 / var(--tw-border-opacity));
 }
 
+.border-\[\#303b5a\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(48 59 90 / var(--tw-border-opacity));
+}
+
 .bg-primaryColor {
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
@@ -851,6 +856,10 @@ video {
 
 .accent-primaryColor {
   accent-color: #1a56db;
+}
+
+.accent-\[\#303b5a\] {
+  accent-color: #303b5a;
 }
 
 .shadow-lg {
