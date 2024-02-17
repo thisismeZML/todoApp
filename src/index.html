@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
   </head>
   <body>
-    <main id="app" class="flex flex-col h-screen">
-      <div class="w-[450px] mx-auto shadow-md rounded-lg p-6">
+    <main id="app" class="flex flex-col h-screen items-center justify-center">
+      <div class="w-[450px] mx-auto shadow-md rounded-lg p-6 min-h-[400px]">
         <h1 class="text-2xl font-bold mb-5">List Building App</h1>
         <div class="flex mb-5">
           <input
@@ -34,28 +35,32 @@
         <div class="flex justify-between mb-5">
           <p class="font-bold">Your Lists</p>
           <p class="bg-primaryColor text-white px-2 rounded-full text-sm py-1">
-            Done ( <span id="doneCount">0 </span>/ <span id="updateCount">0</span> )
+            Done ( <span id="totalDone">0 </span>/ <span id="totalCount">0</span> )
           </p>
         </div>
-        <div id="listGroup" class="flex flex-col gap-3">
+        <div id="listGroup" class="flex flex-col gap-3 ">
           <div class="hidden last:flex flex-col items-center justify-center">
             <img src="./img/no-data.svg" width="150px" alt="" />
             <p class="mt-4">There is no list</p>
-          </div>
-          <div class="listItem flex justify-between items-center bg-white p-3 border-b">
+          </div>         
+        </div>
+      </div>
+      <!-- Template -->
+      <template id="listTemplate">
+        <div class="listItem flex justify-between items-center bg-white p-3 border-b overflow-hidden group animate__animated animate__zoomIn">
             <div class="flex gap-3 items-center">
               <input type="checkbox" class="checkBox w-4 h-4 accent-primaryColor cursor-pointer" />
               <label for="" class="text-name">This is product</label>
             </div>
-            <div>
-              <button class="editBtn bg-primaryColor text-white p-3">
+            <div class="translate-x-[120%] duration-300 group-hover:translate-x-0 cursor-pointer">
+              <button class="active:scale-75 duration-300 editBtn bg-primaryColor text-white p-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-4 h-4"
+                  class="w-4 h-4 pointer-events-none"
                 >
                   <path
                     stroke-linecap="round"
@@ -64,14 +69,14 @@
                   />
                 </svg>
               </button>
-              <button class="deleteBtn bg-primaryColor text-white p-3">
+              <button class="active:scale-75 duration-300 deleteBtn bg-primaryColor text-white p-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-4 h-4"
+                  class="w-4 h-4 pointer-events-none"
                 >
                   <path
                     stroke-linecap="round"
@@ -82,8 +87,8 @@
               </button>
             </div>
           </div>
-        </div>
-      </div>
+      </template>
     </main>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
